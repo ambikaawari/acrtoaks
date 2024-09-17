@@ -1,0 +1,32 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+# - task: AzureContainerAppsRC@0
+#   inputs:
+#     azureSubscription: 'Visual Studio Enterprise Subscription – MPN(20bac492-273c-4d6e-81a6-c451996ee342)'
+#     acrName: 'containerapp0321'
+#     imageToDeploy: 'containerapp0321.azurecr.io/acrdockergit1:713'
+#     containerAppName: 'app01acae'
+#     resourceGroup: 'tamopsaca456-rg'
+#     containerAppEnvironment: 'tamopsaca456acae'
+- task: AzureContainerAppsRC@0
+  inputs:
+    azureSubscription: 'Visual Studio Enterprise Subscription – MPN(20bac492-273c-4d6e-81a6-c451996ee342)'
+    acrName: 'containerapp0321'
+    acrUsername: 'containerapp0321'
+    acrPassword: 'T4ax6K3mC9y4R3d7TELyykQU5R8AhQe4/uoHEuky42+ACRAPqDuy'
+    dockerfilePath: 'Azure-DevOps-Docker-Image-To-ACR/aspnet-core-dotnet-core/Dockerfile'
+    imageToBuild: 'containerapp0321.azurecr.io/acrdockergit:716'
+    imageToDeploy: 'containerapp0321.azurecr.io/acrdockergit1:713'
+    containerAppName: 'app01acae'
+    resourceGroup: 'tamopsaca456-rg'
+    containerAppEnvironment: 'tamopsaca456acae'
